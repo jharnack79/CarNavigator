@@ -12,6 +12,8 @@ public class GridCar implements GridComponent {
 		return this.speed;
 	}
 	
+	//lol
+	
 	@Override
 	public String print() {
 		return "C";
