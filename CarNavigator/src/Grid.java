@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Grid {
-	
+	//testing if this gets pushed correctly lol
 	private GridComponent[][] grid;
 	private ArrayList<GridCar> carList;
 	private ArrayList<GridEnum> lightList;
