@@ -17,7 +17,9 @@ public class Runner {
 			new Thread() {
 				public void run() {
 					if(isAbleToMove)
+						isAbleToMove = false;
 						car.move();
+						isAbleToMove = true;
 				}
 			}.start();
 		}
