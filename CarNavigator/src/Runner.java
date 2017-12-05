@@ -11,6 +11,7 @@ public class Runner {
 	public static void startThreads(ArrayList<GridCar> listOfCars, ArrayList<Grid.GridEnum> listOfLights) {
 		for(GridCar car : listOfCars) {
 			//start a thread and move them around and stuff
+			//do something like Car.getSpeed() to get the speed and increment the car that many spaces
 		}
 		
 		for(Grid.GridEnum stoplight : listOfLights) {

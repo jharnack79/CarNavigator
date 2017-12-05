@@ -74,10 +74,10 @@ public class Grid {
 //			}
 //		}
 		
-		GridCar c1 = new GridCar();
-		GridCar c2 = new GridCar();
-		GridCar c3 = new GridCar();
-		GridCar c4 = new GridCar();
+		GridCar c1 = new GridCar(1);
+		GridCar c2 = new GridCar(2);
+		GridCar c3 = new GridCar(3);
+		GridCar c4 = new GridCar(4);
 		
 		grid[1][1] = c1;
 		grid[4][1] = c2;
