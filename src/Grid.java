@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Grid {
-	//testing if this gets pushed correctly lol
 	private GridComponent[][] grid;
 	private ArrayList<GridCar> carList;
 	private ArrayList<GridEnum> lightList;
@@ -16,7 +15,8 @@ public class Grid {
 	}
 	
 	public Grid(int numberOfCars) {
-		//instantiate grid how I want it for now obviously we can and probably should change this
+		//temporary grid instantiation
+		//will potentially replace with a larger grid and cleaner way of creating it
 		grid = new GridComponent[7][7];
 		lightList = new ArrayList<GridEnum>();
 		
@@ -38,6 +38,8 @@ public class Grid {
 		grid[3][3] = GridEnum.GREENLIGHT;
 		grid[3][5] = GridEnum.GREENLIGHT;
 		grid[5][3] = GridEnum.GREENLIGHT;
+		
+		//add the lights to a list so they can easily be iterated through when starting threads in the Runner class
 		lightList.add((GridEnum)grid[1][3]);
 		lightList.add((GridEnum)grid[3][1]);
 		lightList.add((GridEnum)grid[3][3]);
@@ -50,29 +52,16 @@ public class Grid {
 		grid[4][4] = GridEnum.sidewalk;
 		
 		carList = new ArrayList<GridCar>();
-		//randomly put on however many cars are passed through the args
+		
+		//randomly place however many cars are passed through the args on the streets
 		randomizeCars(numberOfCars);
 		
-		//print out the finalized grid - remove this later probably
+		//print out the finalized grid - will likely remove this later
 		printGrid();
 	}
 	
 	public void randomizeCars(int numberOfCars) {
-//		Random r = new Random();    //this takes forever so for now I just hardcoded the cars below
-//		boolean done = false;
-//		int currentCar = 0;
-//		
-//		while (!done) {
-//			int row = r.nextInt(7);
-//			int column = r.nextInt(7);
-//			
-//			if (grid[row][column] == GridEnum.LANE1) {
-//				grid[row][column] = new Car();
-//				currentCar++;
-//				if(currentCar > numberOfCars)
-//					done = true;
-//			}
-//		}
+		//TODO: implement randomization of cars. Hardcoded for now.
 		
 		GridCar c1 = new GridCar(1);
 		GridCar c2 = new GridCar(2);
@@ -84,6 +73,7 @@ public class Grid {
 		grid[1][5] = c3;
 		grid[3][4] = c4;
 		
+		//add the cars to a list to easily iterate through when creating threads in the Runner class
 		carList.add(c1);
 		carList.add(c2);
 		carList.add(c3);
