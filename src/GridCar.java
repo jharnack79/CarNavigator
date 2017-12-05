@@ -19,7 +19,7 @@ public class GridCar implements GridComponent {
 		return "C";
 	}
 	
-	public void move(int spaces) {
+	public void move() {
 		//is this the approach we want to take?
 		//we can either tell the grid the new position and the grid tells that to the car
 		//or we can tell the car its new position from the thread and then have it tell the grid
