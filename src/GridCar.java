@@ -1,4 +1,3 @@
-import java.awt.Point;
 import java.util.Random;
 
 public class GridCar implements GridComponent {	
@@ -6,7 +5,6 @@ public class GridCar implements GridComponent {
 	private Direction direction;
 	private int column, row;
 	private Grid grid;
-	private boolean doneMoving = false;
 	private String name = "C";
 	
 	public enum Direction {
@@ -133,9 +131,12 @@ public class GridCar implements GridComponent {
 	
 	public Grid move() {
 		//clear current position
-		grid.setGridComponent(row, column, Grid.GridEnum.LANE1);
+		grid.setGridComponent(row, column, Grid.GridEnum.LANE);
+		int originalRow = row;
+		int originalColumn = column;
 		
 		//move as far as possible
+		drive:
 		for (int i = 0 ; i < speed ; i++) {
 			direction.moveOneStep(this);
 			
@@ -164,12 +165,12 @@ public class GridCar implements GridComponent {
 				
 				gc = grid.getGridComponent(row, column);
 				if (gc.print().contains("C")) {
-					direction.moveBackOneStep(this);
-					direction.moveBackOneStep(this);
-					break;
+					this.row = originalRow;
+					this.column = originalColumn;
+					break drive;
 				}
 			}
-			else if(gc == Grid.GridEnum.LANE1) { //change this later when we get rid of lane 2
+			else if(gc == Grid.GridEnum.LANE) {
 				continue;
 			}
 			else { //car

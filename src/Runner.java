@@ -5,8 +5,7 @@ import java.util.concurrent.*;
 
 public class Runner {
 	private static Grid grid;
-	private static boolean isAbleToMove = true; // flag variable so only one car is manipulating the grid at once
-	private static Semaphore sem;
+	private static Semaphore sem; //used by cars to prevent them from altering/printing the grid at the same time
 	
 	public static void main (String[] args) {
 		grid = new Grid(Integer.parseInt(args[0]));
@@ -27,7 +26,6 @@ public class Runner {
 							sem.release();
 							
 						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 						
